@@ -3,7 +3,7 @@ import React from 'react';
 import MoodIcon from '../../Components/MoodIcon';
 import { getMoodColor } from '../../styles/colors';
 
-import { Container, Content, Mood } from './styles';
+import { Container, Content, Mood, Entrie } from './styles';
 
 function Home() {
   return (
@@ -68,6 +68,101 @@ function Home() {
             </ul>
           </div>
         </aside>
+
+        <section className="entries">
+          <ul>
+            <Entrie color={getMoodColor(1)}>
+              <MoodIcon groupId={1} />
+
+              <div className="infos">
+                <header>
+                  <time>18 de Agosto - 01:08</time>
+
+                  <strong>rad</strong>
+                </header>
+
+                <span>Limpando, Estudando, Comendo, Programando.</span>
+
+                <p>
+                  Olá Daylio-Viewer, esse é meu mais novo projeto de
+                  vizualização da database daylio.
+                </p>
+              </div>
+            </Entrie>
+            <Entrie color={getMoodColor(2)}>
+              <MoodIcon groupId={2} />
+
+              <div className="infos">
+                <header>
+                  <time>18 de Agosto - 01:08</time>
+
+                  <strong>good</strong>
+                </header>
+
+                <span>Limpando, Estudando, Comendo, Programando.</span>
+
+                <p>
+                  Olá Daylio-Viewer, esse é meu mais novo projeto de
+                  vizualização da database daylio.
+                </p>
+              </div>
+            </Entrie>
+            <Entrie color={getMoodColor(3)}>
+              <MoodIcon groupId={3} />
+
+              <div className="infos">
+                <header>
+                  <time>18 de Agosto - 01:08</time>
+
+                  <strong>meh</strong>
+                </header>
+
+                <span>Limpando, Estudando, Comendo, Programando.</span>
+
+                <p>
+                  Olá Daylio-Viewer, esse é meu mais novo projeto de
+                  vizualização da database daylio.
+                </p>
+              </div>
+            </Entrie>
+            <Entrie color={getMoodColor(4)}>
+              <MoodIcon groupId={4} />
+
+              <div className="infos">
+                <header>
+                  <time>18 de Agosto - 01:08</time>
+
+                  <strong>bad</strong>
+                </header>
+
+                <span>Limpando, Estudando, Comendo, Programando.</span>
+
+                <p>
+                  Olá Daylio-Viewer, esse é meu mais novo projeto de
+                  vizualização da database daylio.
+                </p>
+              </div>
+            </Entrie>
+            <Entrie color={getMoodColor(5)}>
+              <MoodIcon groupId={5} />
+
+              <div className="infos">
+                <header>
+                  <time>18 de Agosto - 01:08</time>
+
+                  <strong>awful</strong>
+                </header>
+
+                <span>Limpando, Estudando, Comendo, Programando.</span>
+
+                <p>
+                  Olá Daylio-Viewer, esse é meu mais novo projeto de
+                  vizualização da database daylio.
+                </p>
+              </div>
+            </Entrie>
+          </ul>
+        </section>
       </Content>
     </Container>
   );
