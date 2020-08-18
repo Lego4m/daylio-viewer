@@ -1,15 +1,71 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
+
+import { Base64 } from 'js-base64';
+
+import { format } from 'date-fns';
 
 import MoodIcon from '../../Components/MoodIcon';
 import { getMoodColor } from '../../styles/colors';
 
+import getPredefinedName from '../../utils/getPredefinedName';
+
 import { Container, Content, Mood, Entrie } from './styles';
 
 function Home() {
+  const [data, setData] = useState({
+    version: 0,
+    pin: 0,
+    isReminderOn: false,
+    customMoods: [],
+    daysInRowLongestChain: 0,
+    metadata: {
+      number_of_entries: 0,
+      created_at: 0,
+    },
+  });
+
+  const inputFile = useRef();
+
+  function importDatabase(e) {
+    const reader = new FileReader();
+
+    reader.onerror = () => {
+      alert('Erro ao ler arquivo'); // eslint-disable-line no-alert
+    };
+
+    reader.onabort = () => {
+      alert('Erro ao ler arquivo'); // eslint-disable-line no-alert
+    };
+
+    reader.onload = () => {
+      const { result } = reader;
+
+      try {
+        const response = JSON.parse(Base64.decode(result));
+
+        setData(response);
+      } catch (err) {
+        alert('Código inválido!'); // eslint-disable-line no-alert
+      }
+    };
+
+    reader.readAsText(e.target.files[0]);
+  }
+
   return (
     <Container>
       <header>
-        <button type="button">Import database</button>
+        <button onClick={() => inputFile.current.click()} type="button">
+          Import database
+        </button>
+
+        <input
+          type="file"
+          ref={inputFile}
+          accept=".daylio"
+          onChange={importDatabase}
+          style={{ display: 'none' }}
+        />
       </header>
 
       <Content>
@@ -17,23 +73,29 @@ function Home() {
           <ul className="infos">
             <li>
               <strong>Entries: </strong>
-              <span>0</span>
+              <span>{data.metadata.number_of_entries}</span>
             </li>
             <li>
               <strong>Sequence: </strong>
-              <span>0</span>
+              <span>{data.daysInRowLongestChain}</span>
             </li>
             <li>
               <strong>Reminder: </strong>
-              <span>On</span>
+              <span>{data.isReminderOn ? 'On' : 'Off'}</span>
             </li>
             <li>
               <strong>Password: </strong>
-              <span>0000</span>
+              <span>{data.pin}</span>
             </li>
             <li>
               <strong>Created at: </strong>
-              <span>07/22/2020</span>
+              <span>
+                {format(new Date(data.metadata.created_at), 'mm/dd/yyyy')}
+              </span>
+            </li>
+            <li>
+              <strong>Version: </strong>
+              <span>{data.version}</span>
             </li>
           </ul>
 
@@ -41,30 +103,19 @@ function Home() {
             <h1>Moods</h1>
 
             <ul>
-              <Mood color={getMoodColor(1)}>
-                <MoodIcon groupId={1} />
-                <strong>Rad</strong>
-              </Mood>
+              {data.customMoods.map((mood) => (
+                <Mood color={getMoodColor(mood.mood_group_id)} key={mood.id}>
+                  <MoodIcon groupId={mood.mood_group_id} />
 
-              <Mood color={getMoodColor(2)}>
-                <MoodIcon groupId={2} />
-                <strong>Good</strong>
-              </Mood>
-
-              <Mood color={getMoodColor(3)}>
-                <MoodIcon groupId={3} />
-                <strong>Meh</strong>
-              </Mood>
-
-              <Mood color={getMoodColor(4)}>
-                <MoodIcon groupId={4} />
-                <strong>Bad</strong>
-              </Mood>
-
-              <Mood color={getMoodColor(5)}>
-                <MoodIcon groupId={5} />
-                <strong>Awful</strong>
-              </Mood>
+                  {mood.predefined_name_id >= 1 ? (
+                    <strong>
+                      {getPredefinedName(mood.predefined_name_id)}
+                    </strong>
+                  ) : (
+                    <strong>{mood.custom_name}</strong>
+                  )}
+                </Mood>
+              ))}
             </ul>
           </div>
         </aside>
