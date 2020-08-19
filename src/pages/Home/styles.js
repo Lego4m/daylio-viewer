@@ -115,10 +115,16 @@ export const Entrie = styled.li`
       flex-direction: column;
 
       time {
-        display: block;
         font-size: 12px;
 
         opacity: 0.6;
+      }
+
+      div.mood {
+        time {
+          margin-left: 7px;
+          font-size: 11px;
+        }
       }
 
       strong {
