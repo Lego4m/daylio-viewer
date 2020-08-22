@@ -8,6 +8,6 @@ In the daylio go to the "More" menu, then go to "Backup & Restore > Advanced Opt
 
 **Be careful because anyone with this file can view your diary.**
 
-## How it work's?
+## How it works?
 
 The exported daylio database uses base64 encryption, this application decrypts and organizes the elements on screen, showing various information about your diary.
