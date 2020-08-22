@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.js": "/daylio-viewer/static/js/main.a41e842b.chunk.js",
+    "main.js.map": "/daylio-viewer/static/js/main.a41e842b.chunk.js.map",
+    "runtime-main.js": "/daylio-viewer/static/js/runtime-main.0da4146c.js",
+    "runtime-main.js.map": "/daylio-viewer/static/js/runtime-main.0da4146c.js.map",
+    "static/js/2.f2576b4a.chunk.js": "/daylio-viewer/static/js/2.f2576b4a.chunk.js",
+    "static/js/2.f2576b4a.chunk.js.map": "/daylio-viewer/static/js/2.f2576b4a.chunk.js.map",
+    "index.html": "/daylio-viewer/index.html",
+    "precache-manifest.e3b63963188ee29363d17fe104ddd82c.js": "/daylio-viewer/precache-manifest.e3b63963188ee29363d17fe104ddd82c.js",
+    "service-worker.js": "/daylio-viewer/service-worker.js",
+    "static/js/2.f2576b4a.chunk.js.LICENSE.txt": "/daylio-viewer/static/js/2.f2576b4a.chunk.js.LICENSE.txt",
+    "static/media/awful.svg": "/daylio-viewer/static/media/awful.0fce98ba.svg",
+    "static/media/bad.svg": "/daylio-viewer/static/media/bad.aec34ea0.svg",
+    "static/media/good.svg": "/daylio-viewer/static/media/good.3e71333a.svg",
+    "static/media/meh.svg": "/daylio-viewer/static/media/meh.e90b4c45.svg",
+    "static/media/rad.svg": "/daylio-viewer/static/media/rad.b2271f4f.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0da4146c.js",
+    "static/js/2.f2576b4a.chunk.js",
+    "static/js/main.a41e842b.chunk.js"
+  ]
+}
