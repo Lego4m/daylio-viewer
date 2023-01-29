@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { Logo } from './components/Logo';
 import { ImportBackupButton } from './components/ImportBackupButton';
 
 import { DaylioDB } from './types/daylio';
@@ -9,9 +10,13 @@ export function App() {
 
   return (
     <div>
-      <h1>Hello Daylio Viewer!</h1>
+      <header
+        className='max-w-7xl flex justify-between items-center p-4 mx-auto'
+      >
+        <Logo />
 
-      <ImportBackupButton onDatabase={setDatabase}/>
+        <ImportBackupButton onDatabase={setDatabase}/>
+      </header>
     </div>
   );
 }

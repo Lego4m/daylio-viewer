@@ -24,7 +24,10 @@ export function ImportBackupButton({ onDatabase }: ImportBackupButtonProps) {
   }
 
   return (
-    <button onClick={handleClick}>
+    <button
+      onClick={handleClick}
+      className='bg-violet-600 text-white text-lg font-bold py-2 px-4 rounded-md'
+    >
       Import
 
       <input
