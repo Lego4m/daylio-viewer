@@ -22,8 +22,8 @@ export interface DaylioDB {
   moodIconsPackId: number;
   preferredMoodIconsIdsForMoodIdsForIconsPack: {
     [key: number]: {
-      [key: number]: number
-    }
+      [key: number]: number;
+    };
   };
   assets: Asset[];
   goalEntries: GoalEntrie[];
@@ -42,7 +42,7 @@ type Mood = {
   predefined_name_id: number;
   state: number;
   createdAt: number;
-}
+};
 
 type Tag = {
   id: number;
@@ -52,7 +52,7 @@ type Tag = {
   order: number;
   state: number;
   id_tag_group: Tag_group['id'];
-}
+};
 
 type DayEntrie = {
   id: number;
@@ -65,13 +65,14 @@ type DayEntrie = {
   mood: Mood['id'];
   note: string;
   note_title: string;
-  tags: Tag['id']
-  assets: Asset['id']
-}
+  tags: Tag['id'];
+  assets: Asset['id'];
+};
 
-type Achievement = { // Has more stuff here
+type Achievement = {
+  // Has more stuff here
   name: string;
-}
+};
 
 type Goal = {
   id: number;
@@ -90,20 +91,20 @@ type Goal = {
   id_icon: number;
   id_avatar: number;
   order: number;
-}
+};
 
 type Pref = {
   key: string;
   pref_name: string;
   value: boolean | string | number;
-}
+};
 
 type Tag_group = {
   id: number;
   name: string;
   is_expanded: boolean;
   order: number;
-}
+};
 
 type Asset = {
   id: number;
@@ -112,7 +113,7 @@ type Asset = {
   createdAt: number;
   createdAtOffset: number;
   android_metadata: string;
-}
+};
 
 type GoalEntrie = {
   id: number;
@@ -124,7 +125,7 @@ type GoalEntrie = {
   minute: number;
   second: number;
   createdAt: number;
-}
+};
 
 type GoalSuccessWeek = {
   goal_id: Goal['id'];
@@ -133,20 +134,22 @@ type GoalSuccessWeek = {
   create_at_year: number;
   create_at_month: number;
   create_at_day: number;
-}
+};
 
-type Reminder = { // Maybe there's more stuff here
+type Reminder = {
+  // Maybe there's more stuff here
   id: number;
   hour: number;
   minute: number;
   state: number;
   custom_text_enabled: boolean;
-}
+};
 
-type WritingTemplate = { // Maybe there's more stuff here
+type WritingTemplate = {
+  // Maybe there's more stuff here
   id: number;
   order: number;
   predefined_template_id: number;
   title: string;
   body: string;
-}
+};

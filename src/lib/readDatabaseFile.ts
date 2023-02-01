@@ -2,7 +2,7 @@ import { ChangeEvent } from 'react';
 
 import JSZip from 'jszip';
 import base64 from 'base-64';
-import utf8 from 'utf8'
+import utf8 from 'utf8';
 
 import { DaylioDB } from '../types/daylio';
 

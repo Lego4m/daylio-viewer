@@ -26,17 +26,16 @@ export function ImportBackupButton({ onDatabase }: ImportBackupButtonProps) {
   return (
     <button
       onClick={handleClick}
-      className='bg-violet-600 text-white text-lg font-bold py-2 px-4 rounded-md'
+      className="rounded-md bg-violet-600 py-2 px-4 text-lg font-bold text-white"
     >
       Import
-
       <input
-        type='file'
-        accept='.daylio'
-        className='hidden'
+        type="file"
+        accept=".daylio"
+        className="hidden"
         ref={inputRef}
         onChange={handleImportBackupFile}
       />
     </button>
-  )
+  );
 }
