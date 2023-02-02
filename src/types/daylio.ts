@@ -1,6 +1,6 @@
 export interface DaylioDB {
   version: number;
-  isReminDBrOn: boolean;
+  isReminderOn: boolean;
   pin: string;
   customMoods: Mood[];
   tags: Tag[];
@@ -65,8 +65,8 @@ type DayEntrie = {
   mood: Mood['id'];
   note: string;
   note_title: string;
-  tags: Tag['id'];
-  assets: Asset['id'];
+  tags: Tag['id'][];
+  assets: Asset['id'][];
 };
 
 type Achievement = {
