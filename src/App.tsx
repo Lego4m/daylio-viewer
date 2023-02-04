@@ -17,7 +17,7 @@ export function App() {
       </header>
 
       <main className="mt-8 flex flex-col gap-4 md:flex-row">
-        <section className="flex flex-1 flex-col rounded bg-white p-4 shadow">
+        <section className="flex flex-1 flex-col rounded-lg bg-white p-4 shadow">
           <h1 className="mb-2 text-center text-lg font-bold">Diary</h1>
 
           <p className="flex flex-row justify-between">
@@ -82,6 +82,91 @@ export function App() {
             <strong className="text-violet-600">Created At:</strong>
             <span className="text-green-600">02/02/2023</span>
           </p>
+        </section>
+      </main>
+
+      <main className="mt-4 flex flex-col gap-4 md:flex-row">
+        <section className="flex flex-1 flex-col rounded-lg bg-white p-4 shadow">
+          <h1 className="mb-2 text-center text-lg font-bold">Moods</h1>
+
+          <ul className="flex flex-col justify-between gap-2 text-center lg:flex-row">
+            <li className="flex flex-col text-amber-600">
+              <p className="font-bold">Rad</p>
+              <p>In love</p>
+            </li>
+
+            <li className="flex flex-col text-green-600">
+              <p className="font-bold">Good</p>
+              <p>Laughing</p>
+            </li>
+
+            <li className="flex flex-col text-blue-600">
+              <p className="font-bold">Meh</p>
+              <p>Tired</p>
+            </li>
+
+            <li className="flex flex-col text-purple-600">
+              <p className="font-bold">Bad</p>
+              <p>Anxious</p>
+            </li>
+
+            <li className="flex flex-col text-red-600">
+              <p className="font-bold">Awful</p>
+              <p>Desperate</p>
+            </li>
+          </ul>
+        </section>
+
+        <section className="flex flex-1 flex-col rounded-lg bg-white p-4 shadow">
+          <h1 className="mb-2 text-center text-lg font-bold">Tags</h1>
+
+          <ul className="grid grid-cols-2 gap-2 text-center lg:grid-cols-4">
+            <li>
+              <h1 className="font-bold text-violet-600">Social</h1>
+
+              <p>Friends</p>
+              <p>Sports</p>
+              <p>Party</p>
+              <p>Camping</p>
+              <p>Beach</p>
+            </li>
+
+            <li>
+              <h1 className="font-bold text-violet-600">Recreation</h1>
+
+              <p>Mangá</p>
+              <p>Playing</p>
+              <p>Drawing</p>
+              <p>Anime</p>
+              <p>Reading</p>
+            </li>
+
+            <li>
+              <h1 className="font-bold text-violet-600">Learning</h1>
+
+              <p>Exam</p>
+              <p>Searching</p>
+              <p>School</p>
+              <p>Programming</p>
+            </li>
+
+            <li>
+              <h1 className="font-bold text-violet-600">Health</h1>
+
+              <p>Dentist</p>
+              <p>Hospital</p>
+              <p>Psychologist</p>
+            </li>
+
+            <li>
+              <h1 className="font-bold text-violet-600">Others</h1>
+
+              <p>Music</p>
+              <p>Dream</p>
+              <p>Purchases</p>
+              <p>Cleaning</p>
+            </li>
+          </ul>
         </section>
       </main>
 
