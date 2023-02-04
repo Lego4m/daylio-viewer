@@ -16,7 +16,76 @@ export function App() {
         <ImportBackupButton onDatabase={setDatabase} />
       </header>
 
-      <ul className="mt-8 flex flex-col gap-4">
+      <main className="mt-8 flex flex-col gap-4 md:flex-row">
+        <section className="flex flex-1 flex-col rounded bg-white p-4 shadow">
+          <h1 className="mb-2 text-center text-lg font-bold">Diary</h1>
+
+          <p className="flex flex-row justify-between">
+            <strong className="text-violet-600">Longest days in a row:</strong>
+            <span className="text-green-600">1776</span>
+          </p>
+
+          <p className="flex flex-row justify-between">
+            <strong className="text-violet-600">Entries:</strong>
+            <span className="text-green-600">4143</span>
+          </p>
+
+          <p className="flex flex-row justify-between">
+            <strong className="text-violet-600">Moods:</strong>
+            <span className="text-green-600">19</span>
+          </p>
+
+          <p className="flex flex-row justify-between">
+            <strong className="text-violet-600">Tags:</strong>
+            <span className="text-green-600">40</span>
+          </p>
+
+          <p className="flex flex-row justify-between">
+            <strong className="text-violet-600">Tag Groups:</strong>
+            <span className="text-green-600">6</span>
+          </p>
+        </section>
+
+        <section className="flex flex-1 flex-col rounded-lg bg-white p-4 shadow">
+          <h1 className="mb-2 text-center text-lg font-bold">Assets</h1>
+
+          <p className="flex flex-row justify-between">
+            <strong className="text-violet-600">Photos:</strong>
+            <span className="text-green-600">29</span>
+          </p>
+        </section>
+
+        <section className="flex flex-1 flex-col rounded-lg bg-white p-4 shadow">
+          <h1 className="mb-2 text-center text-lg font-bold">Miscs</h1>
+
+          <p className="flex flex-row justify-between">
+            <strong className="text-violet-600">Version:</strong>
+            <span className="text-green-600">20</span>
+          </p>
+
+          <p className="flex flex-row justify-between">
+            <strong className="text-violet-600">Reminder:</strong>
+            <span className="text-green-600">Activated</span>
+          </p>
+
+          <p className="flex flex-row justify-between">
+            <strong className="text-violet-600">Pin:</strong>
+            <span className="text-green-600">1234</span>
+          </p>
+
+          <p className="flex flex-row justify-between">
+            <strong className="text-violet-600">Platform:</strong>
+            <span className="text-green-600">Android</span>
+          </p>
+
+          <p className="flex flex-row justify-between">
+            <strong className="text-violet-600">Created At:</strong>
+            <span className="text-green-600">02/02/2023</span>
+          </p>
+        </section>
+      </main>
+
+      <ul className="mt-4 flex flex-col gap-4">
         <li className="rounded-lg bg-white shadow">
           <header className="rounded-t-lg bg-violet-600 py-2 px-4">
             <h1 className="font-bold text-white">Hoje, 29 de janeiro</h1>
