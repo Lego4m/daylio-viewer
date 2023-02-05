@@ -170,10 +170,10 @@ export function App() {
         </section>
       </main>
 
-      <ul className="mt-4 flex flex-col gap-4">
+      <ul className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         <li className="rounded-lg bg-white shadow">
           <header className="rounded-t-lg bg-violet-600 py-2 px-4">
-            <h1 className="font-bold text-white">Hoje, 29 de janeiro</h1>
+            <h1 className="font-bold text-white">Saturday, 04 February 2023</h1>
           </header>
 
           <ul className="flex flex-col gap-2 p-4">
@@ -199,6 +199,8 @@ export function App() {
                   </li>
                 </ul>
 
+                <h1 className="text-xl">Lorem ipsum</h1>
+
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Pellentesque porta auctor orci quis pharetra. In vitae ligula
@@ -207,6 +209,8 @@ export function App() {
                   finibus. Vestibulum sollicitudin gravida cursus. Mauris tempus
                   varius nunc non varius.
                 </p>
+
+                <img src="#" alt="" className="rounded-lg" />
               </div>
             </li>
           </ul>
