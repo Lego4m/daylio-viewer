@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { Logo } from './components/Logo';
 import { ImportBackupButton } from './components/ImportBackupButton';
+import { DayEntriesList } from './components/DayEntriesList';
 
 import { isObjectEmpty } from './utils/isObjectEmpty';
 
@@ -180,54 +181,7 @@ export function App() {
             </section>
           </main>
 
-          <ul className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-            <li className="rounded-lg bg-white shadow">
-              <header className="rounded-t-lg bg-violet-600 py-2 px-4">
-                <h1 className="font-bold text-white">
-                  Saturday, 04 February 2023
-                </h1>
-              </header>
-
-              <ul className="flex flex-col gap-2 p-4">
-                <li className="flex">
-                  <div className="mr-4 flex flex-col items-center">
-                    <span className="text-xl font-bold">:D</span>
-
-                    <div className="mt-2 flex w-[1px] flex-1 rounded-lg border border-gray-300" />
-                  </div>
-
-                  <div className="flex flex-col gap-1">
-                    <header className="flex items-center gap-2">
-                      <h1 className="text-xl font-bold text-violet-600">Bem</h1>
-
-                      <span className="text-sm text-gray-500">21:30</span>
-                    </header>
-
-                    <ul>
-                      <li className="flex flex-wrap items-center gap-1.5 text-gray-500">
-                        Programando
-                        <div className="h-1.5 w-1.5 rounded-full bg-gray-500" />
-                        Jogando
-                      </li>
-                    </ul>
-
-                    <h1 className="text-xl">Lorem ipsum</h1>
-
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Pellentesque porta auctor orci quis pharetra. In vitae
-                      ligula non ante aliquet congue at in orci. Suspendisse
-                      potenti. Duis placerat lorem a sagittis pretium. Etiam
-                      aliquam blandit finibus. Vestibulum sollicitudin gravida
-                      cursus. Mauris tempus varius nunc non varius.
-                    </p>
-
-                    <img src="#" alt="" className="rounded-lg" />
-                  </div>
-                </li>
-              </ul>
-            </li>
-          </ul>
+          <DayEntriesList database={database} />
         </>
       )}
     </div>
