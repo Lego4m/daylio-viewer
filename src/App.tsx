@@ -4,6 +4,10 @@ import { Logo } from './components/Logo';
 import { ImportBackupButton } from './components/ImportBackupButton';
 import { DayEntriesList } from './components/DayEntriesList';
 
+import { InfoSection } from './components/InfoSection';
+import { InfoTitle } from './components/InfoTitle';
+import { InfoParagraph } from './components/InfoParagraph';
+
 import { isObjectEmpty } from './utils/isObjectEmpty';
 
 import { DaylioDB } from './types/daylio';
@@ -26,79 +30,44 @@ export function App() {
       ) : (
         <>
           <main className="mt-8 flex flex-col gap-4 md:flex-row">
-            <section className="flex flex-1 flex-col rounded-lg bg-white p-4 shadow">
-              <h1 className="mb-2 text-center text-lg font-bold">Diary</h1>
+            <InfoSection>
+              <InfoTitle>Diary</InfoTitle>
 
-              <p className="flex flex-row justify-between">
-                <strong className="text-violet-600">
-                  Longest days in a row:
-                </strong>
-                <span className="text-green-600">1776</span>
-              </p>
+              <InfoParagraph title="Longest days in a row:" info="1776" />
 
-              <p className="flex flex-row justify-between">
-                <strong className="text-violet-600">Entries:</strong>
-                <span className="text-green-600">4143</span>
-              </p>
+              <InfoParagraph title="Entries" info="4143" />
 
-              <p className="flex flex-row justify-between">
-                <strong className="text-violet-600">Moods:</strong>
-                <span className="text-green-600">19</span>
-              </p>
+              <InfoParagraph title="Moods" info="19" />
 
-              <p className="flex flex-row justify-between">
-                <strong className="text-violet-600">Tags:</strong>
-                <span className="text-green-600">40</span>
-              </p>
+              <InfoParagraph title="Tags" info="40" />
 
-              <p className="flex flex-row justify-between">
-                <strong className="text-violet-600">Tag Groups:</strong>
-                <span className="text-green-600">6</span>
-              </p>
-            </section>
+              <InfoParagraph title="Tag Groups" info="6" />
+            </InfoSection>
 
-            <section className="flex flex-1 flex-col rounded-lg bg-white p-4 shadow">
-              <h1 className="mb-2 text-center text-lg font-bold">Assets</h1>
+            <InfoSection>
+              <InfoTitle>Assets</InfoTitle>
 
-              <p className="flex flex-row justify-between">
-                <strong className="text-violet-600">Photos:</strong>
-                <span className="text-green-600">29</span>
-              </p>
-            </section>
+              <InfoParagraph title="Photos" info="29" />
+            </InfoSection>
 
-            <section className="flex flex-1 flex-col rounded-lg bg-white p-4 shadow">
-              <h1 className="mb-2 text-center text-lg font-bold">Miscs</h1>
+            <InfoSection>
+              <InfoTitle>Miscs</InfoTitle>
 
-              <p className="flex flex-row justify-between">
-                <strong className="text-violet-600">Version:</strong>
-                <span className="text-green-600">20</span>
-              </p>
+              <InfoParagraph title="Version" info="20" />
 
-              <p className="flex flex-row justify-between">
-                <strong className="text-violet-600">Reminder:</strong>
-                <span className="text-green-600">Activated</span>
-              </p>
+              <InfoParagraph title="Reminder" info="Activated" />
 
-              <p className="flex flex-row justify-between">
-                <strong className="text-violet-600">Pin:</strong>
-                <span className="text-green-600">1234</span>
-              </p>
+              <InfoParagraph title="Pin:" info="1234" />
 
-              <p className="flex flex-row justify-between">
-                <strong className="text-violet-600">Platform:</strong>
-                <span className="text-green-600">Android</span>
-              </p>
+              <InfoParagraph title="Platform" info="Android" />
 
-              <p className="flex flex-row justify-between">
-                <strong className="text-violet-600">Created At:</strong>
-                <span className="text-green-600">02/02/2023</span>
-              </p>
-            </section>
+              <InfoParagraph title="Created At" info="02/02/2023" />
+            </InfoSection>
           </main>
 
           <main className="mt-4 flex flex-col gap-4 md:flex-row">
-            <section className="flex flex-1 flex-col rounded-lg bg-white p-4 shadow">
-              <h1 className="mb-2 text-center text-lg font-bold">Moods</h1>
+            <InfoSection>
+              <InfoTitle>Moods</InfoTitle>
 
               <ul className="flex flex-col justify-between gap-2 text-center lg:flex-row">
                 <li className="flex flex-col text-amber-600">
@@ -126,10 +95,10 @@ export function App() {
                   <p>Desperate</p>
                 </li>
               </ul>
-            </section>
+            </InfoSection>
 
-            <section className="flex flex-1 flex-col rounded-lg bg-white p-4 shadow">
-              <h1 className="mb-2 text-center text-lg font-bold">Tags</h1>
+            <InfoSection>
+              <InfoTitle>Tags</InfoTitle>
 
               <ul className="grid grid-cols-2 gap-2 text-center lg:grid-cols-4">
                 <li>
@@ -178,7 +147,7 @@ export function App() {
                   <p>Cleaning</p>
                 </li>
               </ul>
-            </section>
+            </InfoSection>
           </main>
 
           <DayEntriesList database={database} />
