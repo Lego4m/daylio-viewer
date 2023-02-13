@@ -1,5 +1,16 @@
 import { useState } from 'react';
 
+import {
+  Box,
+  Flex,
+  Text,
+  Stack,
+  VStack,
+  Grid,
+  GridItem,
+  Heading,
+} from '@chakra-ui/react';
+
 import { Logo } from './components/Logo';
 import { ImportBackupButton } from './components/ImportBackupButton';
 import { DayEntriesList } from './components/DayEntriesList';
@@ -16,20 +27,20 @@ export function App() {
   const [database, setDatabase] = useState<DaylioDB>({} as DaylioDB);
 
   return (
-    <div className="mx-auto max-w-7xl p-4">
-      <header className="flex items-center justify-between">
+    <Box mx="auto" maxW="7xl" p={4}>
+      <Flex as="header" alignItems="center" justifyContent="space-between">
         <Logo />
 
         <ImportBackupButton onDatabase={setDatabase} />
-      </header>
+      </Flex>
 
       {isObjectEmpty(database) ? (
-        <div className="mt-8">
-          <p className="text-center">Please import a daylio database.</p>
-        </div>
+        <Box mt={4}>
+          <Text textAlign="center">Please import a daylio database.</Text>
+        </Box>
       ) : (
         <>
-          <main className="mt-8 flex flex-col gap-4 md:flex-row">
+          <Flex mt={4} gap={4} flexDir={['column', 'column', 'row']}>
             <InfoSection>
               <InfoTitle>Diary</InfoTitle>
 
@@ -63,96 +74,120 @@ export function App() {
 
               <InfoParagraph title="Created At" info="02/02/2023" />
             </InfoSection>
-          </main>
+          </Flex>
 
-          <main className="mt-4 flex flex-col gap-4 md:flex-row">
+          <Flex mt={4} gap={4} flexDir={['column', 'column', 'row']}>
             <InfoSection>
               <InfoTitle>Moods</InfoTitle>
 
-              <ul className="flex flex-col justify-between gap-2 text-center lg:flex-row">
-                <li className="flex flex-col text-amber-600">
-                  <p className="font-bold">Rad</p>
-                  <p>In love</p>
-                </li>
+              <Stack
+                direction={['column', 'row', 'column', 'row']}
+                justify="space-between"
+                spacing={2}
+                textAlign="center"
+              >
+                <VStack color="yellow.500">
+                  <Text fontWeight="bold">Rad</Text>
+                  <Text>In love</Text>
+                </VStack>
 
-                <li className="flex flex-col text-green-600">
-                  <p className="font-bold">Good</p>
-                  <p>Laughing</p>
-                </li>
+                <VStack color="green.500">
+                  <Text fontWeight="bold">Good</Text>
+                  <Text>Laughing</Text>
+                </VStack>
 
-                <li className="flex flex-col text-blue-600">
-                  <p className="font-bold">Meh</p>
-                  <p>Tired</p>
-                </li>
+                <VStack color="blue.500">
+                  <Text fontWeight="bold">Meh</Text>
+                  <Text>Tired</Text>
+                </VStack>
 
-                <li className="flex flex-col text-purple-600">
-                  <p className="font-bold">Bad</p>
-                  <p>Anxious</p>
-                </li>
+                <VStack color="purple.500">
+                  <Text fontWeight="bold">Bad</Text>
+                  <Text>Anxious</Text>
+                </VStack>
 
-                <li className="flex flex-col text-red-600">
-                  <p className="font-bold">Awful</p>
-                  <p>Desperate</p>
-                </li>
-              </ul>
+                <VStack color="red.500">
+                  <Text fontWeight="bold">Awful</Text>
+                  <Text>Desperate</Text>
+                </VStack>
+              </Stack>
             </InfoSection>
 
             <InfoSection>
               <InfoTitle>Tags</InfoTitle>
 
-              <ul className="grid grid-cols-2 gap-2 text-center lg:grid-cols-4">
-                <li>
-                  <h1 className="font-bold text-violet-600">Social</h1>
+              <Grid
+                templateColumns={[
+                  'repeat(2, 1fr)',
+                  'repeat(3, 1fr)',
+                  'repeat(3, 1fr)',
+                  'repeat(4, 1fr)',
+                ]}
+                gap={2}
+                textAlign="center"
+              >
+                <GridItem>
+                  <Heading as="h3" color="purple.500" fontSize="md">
+                    Social
+                  </Heading>
 
-                  <p>Friends</p>
-                  <p>Sports</p>
-                  <p>Party</p>
-                  <p>Camping</p>
-                  <p>Beach</p>
-                </li>
+                  <Text>Friends</Text>
+                  <Text>Sports</Text>
+                  <Text>Party</Text>
+                  <Text>Camping</Text>
+                  <Text>Beach</Text>
+                </GridItem>
 
-                <li>
-                  <h1 className="font-bold text-violet-600">Recreation</h1>
+                <GridItem>
+                  <Heading as="h3" color="purple.500" fontSize="md">
+                    Recreation
+                  </Heading>
 
-                  <p>Mangá</p>
-                  <p>Playing</p>
-                  <p>Drawing</p>
-                  <p>Anime</p>
-                  <p>Reading</p>
-                </li>
+                  <Text>Mangá</Text>
+                  <Text>Playing</Text>
+                  <Text>Drawing</Text>
+                  <Text>Anime</Text>
+                  <Text>Reading</Text>
+                </GridItem>
 
-                <li>
-                  <h1 className="font-bold text-violet-600">Learning</h1>
+                <GridItem>
+                  <Heading as="h3" color="purple.500" fontSize="md">
+                    Learning
+                  </Heading>
 
-                  <p>Exam</p>
-                  <p>Searching</p>
-                  <p>School</p>
-                  <p>Programming</p>
-                </li>
+                  <Text>Exam</Text>
+                  <Text>Searching</Text>
+                  <Text>School</Text>
+                  <Text>Programming</Text>
+                </GridItem>
 
-                <li>
-                  <h1 className="font-bold text-violet-600">Health</h1>
+                <GridItem>
+                  <Heading as="h3" color="purple.500" fontSize="md">
+                    Health
+                  </Heading>
 
-                  <p>Dentist</p>
-                  <p>Hospital</p>
-                  <p>Psychologist</p>
-                </li>
+                  <Text>Dentist</Text>
+                  <Text>Hospital</Text>
+                  <Text>Psychologist</Text>
+                </GridItem>
 
-                <li>
-                  <h1 className="font-bold text-violet-600">Others</h1>
+                <GridItem>
+                  <Heading as="h3" color="purple.500" fontSize="md">
+                    Others
+                  </Heading>
 
-                  <p>Music</p>
-                  <p>Dream</p>
-                  <p>Purchases</p>
-                  <p>Cleaning</p>
-                </li>
-              </ul>
+                  <Text>Music</Text>
+                  <Text>Dream</Text>
+                  <Text>Purchases</Text>
+                  <Text>Cleaning</Text>
+                </GridItem>
+              </Grid>
             </InfoSection>
-          </main>
+          </Flex>
 
           <DayEntriesList database={database} />
         </>
       )}
-    </div>
+    </Box>
   );
 }

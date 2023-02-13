@@ -1,5 +1,5 @@
 {
-  "extends": ["react-app", "prettier", "plugin:tailwindcss/recommended"],
+  "extends": ["react-app", "prettier"],
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": "error"

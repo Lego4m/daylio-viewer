@@ -1,15 +1,20 @@
-import { ComponentProps } from 'react';
+import { Text, TextProps } from '@chakra-ui/react';
 
-interface InfoParagraphProps extends ComponentProps<'p'> {
+interface InfoParagraphProps extends TextProps {
   title: string;
   info: string | number;
 }
 
 export function InfoParagraph({ title, info, ...rest }: InfoParagraphProps) {
   return (
-    <p className="flex flex-row justify-between" {...rest}>
-      <strong className="text-violet-600">{title}</strong>
-      <span className="text-green-600">{info}</span>
-    </p>
+    <Text display="flex" flexDir="row" justifyContent="space-between" {...rest}>
+      <Text as="strong" color="purple.500">
+        {title}
+      </Text>
+
+      <Text as="span" color="green.500">
+        {info}
+      </Text>
+    </Text>
   );
 }

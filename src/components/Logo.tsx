@@ -1,8 +1,14 @@
+import { Heading, Text } from '@chakra-ui/react';
+
 export function Logo() {
   return (
-    <h1 className="text-2xl font-bold">
-      <span className="text-violet-600">Daylio</span>{' '}
-      <span className="text-green-600">Viewer</span>
-    </h1>
+    <Heading as="h1" fontSize="2xl">
+      <Text as="span" color="purple.500">
+        Daylio
+      </Text>{' '}
+      <Text as="span" color="green.500">
+        Viewer
+      </Text>
+    </Heading>
   );
 }

@@ -1,4 +1,13 @@
 import { useMemo } from 'react';
+import {
+  Grid,
+  GridItem,
+  Heading,
+  Text,
+  Flex,
+  Box,
+  Image,
+} from '@chakra-ui/react';
 
 import { format } from 'date-fns';
 
@@ -27,75 +36,115 @@ export function DayEntriesList({ database }: DayEntriesListProps) {
   );
 
   return (
-    <ul className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+    <Grid
+      mt={4}
+      gap={4}
+      templateColumns={[
+        'repeat(1, 1fr)',
+        'repeat(1, 1fr)',
+        'repeat(2, 1fr)',
+        'repeat(3, 1fr)',
+      ]}
+    >
       {dayEntriesSections.map((section) => (
-        <li className="rounded-lg bg-white shadow" key={section.date}>
-          <header className="rounded-t-lg bg-violet-600 py-2 px-4">
-            <h1 className="font-bold text-white">
+        <GridItem rounded="md" bgColor="white" shadow="base" key={section.date}>
+          <Flex
+            roundedTopLeft="md"
+            roundedTopRight="md"
+            backgroundColor="purple.600"
+            py={2}
+            px={4}
+          >
+            <Heading color="white" fontSize="md">
               {format(new Date(section.date), 'EEEE, dd MMMM yyyy')}
-            </h1>
-          </header>
+            </Heading>
+          </Flex>
 
-          <ul className="flex flex-col gap-2 p-4">
+          <Flex as="ul" direction="column" gap={2} p={4}>
             {section.data.map((entrie, entrieIndex) => (
-              <li className="flex" key={entrie.id}>
-                <div className="mr-4 flex flex-col items-center">
-                  <span className="w-5 whitespace-nowrap text-center text-xl font-bold">
+              <Flex as="li" key={entrie.id}>
+                <Flex mr={4} direction="column" alignItems="center">
+                  <Text
+                    w={5}
+                    whiteSpace="nowrap"
+                    textAlign="center"
+                    fontSize="xl"
+                    fontWeight="bold"
+                  >
                     {moods.find((mood) => mood.id === entrie.mood)?.icon}
-                  </span>
+                  </Text>
 
                   {!isLastItemOfArray(entrieIndex, section.data) && (
-                    <div className="mt-2 flex w-[1px] flex-1 rounded-lg border border-gray-300" />
+                    <Flex
+                      mt={2}
+                      w="1px"
+                      flex={1}
+                      rounded="md"
+                      border="1px"
+                      borderColor="gray.300"
+                    />
                   )}
-                </div>
+                </Flex>
 
-                <div className="flex flex-col gap-1">
-                  <header className="flex items-center gap-2">
-                    <h1 className="text-xl font-bold capitalize text-violet-600">
+                <Flex direction="column" gap={1}>
+                  <Flex as="header" alignItems="center" gap={2}>
+                    <Heading
+                      as="h3"
+                      fontSize="xl"
+                      textTransform="capitalize"
+                      color="purple.500"
+                    >
                       {moods.find((mood) => mood.id === entrie.mood)?.name}
-                    </h1>
+                    </Heading>
 
-                    <span className="text-sm text-gray-500">
+                    <Text as="span" fontSize="sm" color="gray.500">
                       {format(new Date(entrie.datetime), 'HH:mm')}
-                    </span>
-                  </header>
+                    </Text>
+                  </Flex>
 
                   {!isArrayEmpty(entrie.tags) && (
-                    <ul className="flex flex-wrap gap-1.5">
+                    <Flex as="ul" flexWrap="wrap" gap={1.5}>
                       {entrie.tags.map((tagId, tagIndex) => (
-                        <li className="flex items-center gap-1.5" key={tagId}>
-                          <span className="text-gray-500">
+                        <Flex as="li" alignItems="center" gap={1.5} key={tagId}>
+                          <Text as="span" color="gray.500">
                             {
                               database.tags.find((tag) => tag.id === tagId)
                                 ?.name
                             }
-                          </span>
+                          </Text>
 
                           {!isLastItemOfArray(tagIndex, entrie.tags) && (
-                            <div className="h-1.5 w-1.5 rounded-full bg-gray-500" />
+                            <Box
+                              h={1.5}
+                              w={1.5}
+                              rounded="full"
+                              bgColor="gray.500"
+                            />
                           )}
-                        </li>
+                        </Flex>
                       ))}
-                    </ul>
+                    </Flex>
                   )}
 
                   {entrie.note_title && (
-                    <h1 className="text-xl">{entrie.note_title}</h1>
+                    <Heading as="h4" fontSize="xl" fontWeight="normal">
+                      {entrie.note_title}
+                    </Heading>
                   )}
 
                   {entrie.note && (
-                    <p className="whitespace-pre-line">
+                    <Text whiteSpace="pre-line">
                       {entrie.note.replace(/<br>/g, '\n')}
-                    </p>
+                    </Text>
                   )}
 
-                  {/* <img src="#" alt="" className="rounded-lg" /> */}
-                </div>
-              </li>
+                  {/* <Image src="#" alt="" rounded="md" /> */}
+                </Flex>
+              </Flex>
             ))}
-          </ul>
-        </li>
+          </Flex>
+        </GridItem>
       ))}
-    </ul>
+    </Grid>
   );
 }

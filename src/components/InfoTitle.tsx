@@ -1,11 +1,9 @@
-import { ComponentProps } from 'react';
+import { Heading, HeadingProps } from '@chakra-ui/react';
 
-interface InfoTitleProps extends ComponentProps<'h1'> {}
-
-export function InfoTitle({ children, ...rest }: InfoTitleProps) {
+export function InfoTitle({ children, ...rest }: HeadingProps) {
   return (
-    <h1 className="mb-2 text-center text-lg font-bold" {...rest}>
+    <Heading mb={2} textAlign="center" fontSize="lg" {...rest}>
       {children}
-    </h1>
+    </Heading>
   );
 }

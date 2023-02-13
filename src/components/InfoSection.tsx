@@ -1,14 +1,18 @@
-import { ComponentProps } from 'react';
+import { Flex, FlexProps } from '@chakra-ui/react';
 
-interface InfoSectionProps extends ComponentProps<'section'> {}
-
-export function InfoSection({ children, ...rest }: InfoSectionProps) {
+export function InfoSection({ children, ...rest }: FlexProps) {
   return (
-    <section
-      className="flex flex-1 flex-col rounded-lg bg-white p-4 shadow"
+    <Flex
+      as="section"
+      flex={1}
+      flexDir="column"
+      rounded="md"
+      backgroundColor="white"
+      p={4}
+      shadow="base"
       {...rest}
     >
       {children}
-    </section>
+    </Flex>
   );
 }

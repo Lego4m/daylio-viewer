@@ -1,5 +1,7 @@
 import { useRef, ChangeEvent } from 'react';
 
+import { Button } from '@chakra-ui/react';
+
 import { readDatabaseFile } from '../lib/readDatabaseFile';
 
 import { DaylioDB } from '../types/daylio';
@@ -24,18 +26,15 @@ export function ImportBackupButton({ onDatabase }: ImportBackupButtonProps) {
   }
 
   return (
-    <button
-      onClick={handleClick}
-      className="rounded-md bg-violet-600 py-2 px-4 text-lg font-bold text-white"
-    >
+    <Button onClick={handleClick} colorScheme="purple">
       Import
       <input
         type="file"
         accept=".daylio"
-        className="hidden"
+        style={{ display: 'none' }}
         ref={inputRef}
         onChange={handleImportBackupFile}
       />
-    </button>
+    </Button>
   );
 }
