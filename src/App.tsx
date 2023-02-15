@@ -11,6 +11,8 @@ import {
   Heading,
 } from '@chakra-ui/react';
 
+import { format } from 'date-fns';
+
 import { Logo } from './components/Logo';
 import { ImportBackupButton } from './components/ImportBackupButton';
 import { DayEntriesList } from './components/DayEntriesList';
@@ -44,35 +46,59 @@ export function App() {
             <InfoSection>
               <InfoTitle>Diary</InfoTitle>
 
-              <InfoParagraph title="Longest days in a row:" info="1776" />
+              <InfoParagraph
+                title="Longest days in a row:"
+                info={database.daysInRowLongestChain}
+              />
 
-              <InfoParagraph title="Entries" info="4143" />
+              <InfoParagraph
+                title="Entries"
+                info={database.metadata.number_of_entries}
+              />
 
-              <InfoParagraph title="Moods" info="19" />
+              <InfoParagraph title="Moods" info={database.customMoods.length} />
 
-              <InfoParagraph title="Tags" info="40" />
+              <InfoParagraph title="Tags" info={database.tags.length} />
 
-              <InfoParagraph title="Tag Groups" info="6" />
+              <InfoParagraph
+                title="Tag Groups"
+                info={database.tag_groups.length}
+              />
             </InfoSection>
 
             <InfoSection>
               <InfoTitle>Assets</InfoTitle>
 
-              <InfoParagraph title="Photos" info="29" />
+              <InfoParagraph
+                title="Photos"
+                info={database.metadata.number_of_photos}
+              />
             </InfoSection>
 
             <InfoSection>
               <InfoTitle>Miscs</InfoTitle>
 
-              <InfoParagraph title="Version" info="20" />
+              <InfoParagraph title="Version" info={database.version} />
 
-              <InfoParagraph title="Reminder" info="Activated" />
+              <InfoParagraph
+                title="Reminder"
+                info={database.isReminderOn ? 'Enabled' : 'Disabled'}
+              />
 
-              <InfoParagraph title="Pin:" info="1234" />
+              <InfoParagraph title="Pin:" info={database.pin} />
 
-              <InfoParagraph title="Platform" info="Android" />
+              <InfoParagraph
+                title="Platform"
+                info={database.metadata.platform}
+              />
 
-              <InfoParagraph title="Created At" info="02/02/2023" />
+              <InfoParagraph
+                title="Created At"
+                info={format(
+                  new Date(database.metadata.created_at),
+                  'MM/dd/yyyy'
+                )}
+              />
             </InfoSection>
           </Flex>
 

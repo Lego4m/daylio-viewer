@@ -7,7 +7,13 @@ interface InfoParagraphProps extends TextProps {
 
 export function InfoParagraph({ title, info, ...rest }: InfoParagraphProps) {
   return (
-    <Text display="flex" flexDir="row" justifyContent="space-between" {...rest}>
+    <Text
+      display="flex"
+      flexDir="row"
+      justifyContent="space-between"
+      textTransform="capitalize"
+      {...rest}
+    >
       <Text as="strong" color="purple.500">
         {title}
       </Text>
